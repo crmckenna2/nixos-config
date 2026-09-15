@@ -1,0 +1,48 @@
+// Configuration guide:
+// https://github.com/niri-wm/niri/wiki/Configuration:-Input
+
+input {
+
+    keyboard {
+        
+	// Use the default xkb keyboard layout detailed at org.freedesktop.locale1
+	xkb { }
+
+	// Allow the keypad by default
+	numlock
+
+    }
+
+    touchpad {
+
+	// Reduce the sensitivity of the touchpad
+	accel-speed -0.5
+
+	// Set the scrolling type the CORRECT way
+	natural-scroll
+
+	// Allow clicking with a tap of the trackpad
+	tap
+
+	// Do not allow clicking whilst typing
+	dwt
+
+    }
+
+    mouse {
+
+	// Reduce the sensitivity of the mouse
+	accel-speed -0.5
+
+    }
+
+    // Disable methods of input that I will not be using
+    trackpoint { off; }
+
+    trackball { off; }
+
+    tablet { off; }
+
+    touch { off; }
+    
+}

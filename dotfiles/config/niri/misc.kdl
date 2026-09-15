@@ -1,0 +1,17 @@
+// Run the startup apps
+// spawn-at-startup "waybar"
+
+// Skip the "Important Hotkeys" popup
+hotkey-overlay { skip-at-startup; }
+
+// Set the screenshot path
+screenshot-path "~/.local/screenshots/ss_on_%Y-%m-%d_at_%H_%M_%S.png"
+
+// Ask other packages to not draw outside their window
+prefer-no-csd
+
+// Set the cursor
+cursor {
+    xcursor-theme "Adwaita"
+    xcursor-size 24 
+}

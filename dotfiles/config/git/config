@@ -1,0 +1,5 @@
+[user]
+	name = "Cody McKenna"
+	email = "crmckenna2@wisc.edu"
+[init]
+	defaultBranch = main
