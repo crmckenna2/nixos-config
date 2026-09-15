@@ -1,41 +1,31 @@
-{ self, inputs, ... }:
+{ self, inputs, ... }: {
 
-{
-
-  flake.nixosConfigurations.alienix = inputs.nixpkgs.lib.nixosSystem {
+  flake.nixosConfigurations.nixps = inputs.nixpkgs.lib.nixosSystem {
 
     # Declare the nixos modules for the machine
     modules = [
       inputs.home-manager.nixosModules.home-manager
       self.nixosModules.universal
-      self.nixosModules.alienix
+      self.nixosModules.nixps
       self.nixosModules.cody
       self.nixosModules.hyprland
     ];
 
   };
 
-  flake.nixosModules.alienix = {config, lib, pkgs, modulesPath, ... }: {
+  flake.nixosModules.nixps = { config, pkgs, lib, modulesPath, ... }: {
 
-    # Set the hostname
-    networking.hostName = "alienix";
+    # Set the host name
+    networking.hostName = "nixps";
 
-    # Declare the system state version
-    system.stateVersion = "26.05";
+    # Declare the nixos installation version
+    system.stateVersion = "25.11";
     home-manager.users.cody.imports = [
-     self.homeModules.alienix
+      self.homeModules.nixps
     ];
 
-    # Nvidia and graphical settings
-    services.xserver.videoDrivers = [ "nvidia" ];
+    # Graphical settings
     hardware.graphics.enable = true;
-    hardware.nvidia = {
-      modesetting.enable = true;
-      powerManagement.enable = true;
-      open = true;
-      nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.production;
-    };
 
     # IMPORTANT: The code below this line is written by the OS
     # Be very deliberate when considering changes to the code below
@@ -44,18 +34,24 @@
     ];
 
     # Kernel modules
-    boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
+    boot.initrd.availableKernelModules = [
+      "xhci_pci"
+      "thunderbolt"
+      "vmd"
+      "nvme" "usb_storage" "sd_mod"
+      "rtsx_pci_sdmmc"
+    ];
     boot.initrd.kernelModules = [ ];
     boot.kernelModules = [ "kvm-intel" ];
     boot.extraModulePackages = [ ];
 
     # Root and boot drives
-    fileSystems."/" = { 
-      device = "/dev/disk/by-uuid/4da8a858-38d8-4bd7-b982-ecad997c5588";
+    fileSystems."/" = {
+      device = "/dev/disk/by-uuid/947ebe50-f54e-4d85-a2a6-b2fbfcfa228a";
       fsType = "ext4";
     };
-    fileSystems."/boot" = { 
-      device = "/dev/disk/by-uuid/BA84-9990";
+    fileSystems."/boot" = {
+      device = "/dev/disk/by-uuid/3767-AEEB";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
@@ -67,7 +63,7 @@
     nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
     hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
-    # Bootloader settings
+    # Bootloader
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
 
@@ -76,12 +72,11 @@
 
   };
 
-  flake.homeModules.alienix = { ... } : {
+  flake.homeModules.nixps = { ... } : {
   
      # Declare initial install version of home manager
-     home.stateVersion = "26.05";
+     home.stateVersion = "25.11";
 
   };
 
 }
-

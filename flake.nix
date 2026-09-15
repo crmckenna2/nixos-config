@@ -16,12 +16,11 @@
     import-tree.url = "github:vic/import-tree";
 
   };
-
-  # Force home manager to install the same versions as nixpkgs
-  inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
+ 
+  # Declare the outputs recursively with import-tree
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; }
     (inputs.import-tree [
+      ./.flake-parts
       ./hosts
       ./users
       ./wms

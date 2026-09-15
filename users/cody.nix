@@ -43,10 +43,9 @@
 
   flake.homeModules.cody = { pkgs, ... } : {
 
-    # Provide basic system info
+    # Provide basic user info
     home.username = "cody";
     home.homeDirectory = "/home/cody";
-    home.stateVersion = "26.05";
 
     # Enable home manager
     programs.home-manager.enable = true;
