@@ -1,6 +1,6 @@
 { self, inputs, ...}: {
 
-  flake.nixosModules.cody = { pkgs, config, ...}: {
+  flake.nixosModules.cody = { pkgs, ...}: {
 
     users.users.cody = {
     
@@ -41,7 +41,7 @@
 
   };
 
-  flake.homeModules.cody = { pkgs, ... } : {
+  flake.homeModules.cody = { pkgs, config, ... } : {
 
     # Provide basic user info
     home.username = "cody";
@@ -57,6 +57,23 @@
     home.file.".config" = {
       source = ../dotfiles/config;
       recursive = true;
+      force = true;
+    };
+
+    # Move default directories out of the home directory
+    xdg.userDirs = {
+      enable = true;
+      createDirectories = true;
+      setSessionVariables = true;
+      desktop = "${config.home.homeDirectory}/files/desktop";
+      documents = "${config.home.homeDirectory}/files/documents";
+      download = "${config.home.homeDirectory}/files/downloads";
+      music = "${config.home.homeDirectory}/files/music";
+      pictures = "${config.home.homeDirectory}/files/pictures";
+      projects = "${config.home.homeDirectory}/files/projects";
+      publicShare = "${config.home.homeDirectory}/files/public-share";
+      templates = "${config.home.homeDirectory}/files/templates";
+      videos = "${config.home.homeDirectory}/files/videos";
     };
 
   };
