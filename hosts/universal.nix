@@ -1,6 +1,11 @@
-{ self, ... }: {
+{ self, inputs, ... }: {
 
   flake.nixosModules.universal = { pkgs, ... }: {
+
+    # Universal packages
+    environment.systemPackages = with pkgs; [
+      git
+    ];
 
     # Network manager
     networking.networkmanager.enable = true;

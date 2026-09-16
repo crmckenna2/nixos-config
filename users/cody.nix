@@ -8,7 +8,6 @@
       description = "cody";
       extraGroups = [ "networkmanager" "wheel" ];
       packages = with pkgs; [
-        git
         neovim
         fishMinimal
 	direnv
@@ -55,7 +54,7 @@
 
     # Symlink the dotfiles
     home.file.".config" = {
-      source = ../dotfiles/config;
+      source = ../dotfiles/.config;
       recursive = true;
       force = true;
     };
