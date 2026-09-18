@@ -7,10 +7,15 @@
 
     # Install the supporting packages
     environment.systemPackages = with pkgs; [
+      brightnessctl
+      playerctl
       bluetui
+      wev
+      fuzzel
+      foot
+      librewolf
       kitty
       fastfetch
-      librewolf
     ];
 
     # Configure the system audio
