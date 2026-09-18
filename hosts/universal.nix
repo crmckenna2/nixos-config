@@ -5,6 +5,7 @@
     # Universal packages
     environment.systemPackages = with pkgs; [
       git
+      btop
     ];
 
     # Network manager

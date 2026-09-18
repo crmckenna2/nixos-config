@@ -6,7 +6,6 @@ require("nvidia")
 require("binds")
 require("look-feel")
 require("input-output")
-require("programs")
 
 
 -------------------------------
