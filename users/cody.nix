@@ -75,6 +75,9 @@
       videos = "${config.home.homeDirectory}/files/videos";
     };
 
+    # Communication layer for bluetooth headphone buttons
+    services.mpris-proxy.enable = true;
+
   };
 
 }

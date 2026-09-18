@@ -7,6 +7,7 @@
 
     # Install the supporting packages
     environment.systemPackages = with pkgs; [
+      bluetui
       kitty
       fastfetch
       librewolf
@@ -19,6 +20,17 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+    };
+
+    # Bluetooth configuration
+    hardware.bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+      settings = {
+        Policy = {
+	  Experimental = true;
+	};
+      };
     };
 
     # Configure electron apps to use wayland natively
