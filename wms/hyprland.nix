@@ -4,6 +4,7 @@
 
     # Enable hyprland
     programs.hyprland.enable = true;
+    programs.hyprland.withUWSM = true;
 
     # Install the supporting packages
     environment.systemPackages = with pkgs; [
