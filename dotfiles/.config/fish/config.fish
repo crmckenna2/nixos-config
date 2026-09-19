@@ -3,7 +3,7 @@ if status is-interactive
     # Set aliases
     alias la="ls -a --group-directories-first"
     alias rb="sudo nixos-rebuild switch --flake ~/nixos-config"
-    alias db="nixos-rebuild dry-build"
+    alias db="nixos-rebuild dry-build --show-trace --flake ~/nixos-config"
     alias ff="fastfetch"
     alias nv="nvim"
     alias gpu="nvidia-smi"

@@ -11,13 +11,13 @@ require("colors")
 ---- STARTUP ----
 -----------------
 
-hl.on("hyprland.start", function()
+hl.on("hyprland.start", function ()
   
   -- Move into an accessible workspace
-  hl.dsp.focus({workspace = "name:U"})
+  hl.dispatch(hl.dsp.focus({workspace = "name:U"}))
 
   -- Start a foot server
-  hl.dsp.exec_cmd("foot --server")
+  hl.exec_cmd("foot --server")
 
 end)
 
@@ -27,11 +27,11 @@ end)
 ----------------
 
 -- Set up Nvidia environment variables
-hl.env("LIBVA_DRIVER_NAME", "nvidia")
-hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
+-- hl.env("LIBVA_DRIVER_NAME", "nvidia")
+-- hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
 
---  Allow electron apps to use Nvdia drivers
-hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
+-- Allow electron apps to use Nvdia drivers
+-- hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
 
 
 -------------------------------

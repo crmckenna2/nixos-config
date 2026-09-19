@@ -7,11 +7,10 @@
 
     # Install the supporting packages
     environment.systemPackages = with pkgs; [
-      xdg-desktop-portal-hyprland
       hyprpolkitagent
       brightnessctl
-      qt6-wayland
-      qt5-wayland
+      #qt6.qtwayland
+      #libsForQt5.qtwayland
       playerctl
       wev
       foot
@@ -19,6 +18,12 @@
       bluetui
       librewolf
     ];
+
+    # Display manager
+    services.displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
 
     # Configure the system audio
     security.rtkit.enable = true;
@@ -41,8 +46,14 @@
       };
     };
 
-    # Configure electron apps to use wayland natively
-    environment.sessionVariables.NIXOS_OZONE_WL = "1";
+    # Configure session variables for Nvidia & wayland 
+    environment.sessionVariables = {
+      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+      LIBVA_DRIVER_NAME = "nvidia";
+      NIXOS_OZONE_WL = "1";
+      ELECTRON_OZONE_PLATFORM_HINT = "auto";
+      XDG_SESSION_TYPE = "wayland";
+    };
 
   };
 
