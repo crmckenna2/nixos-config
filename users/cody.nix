@@ -13,6 +13,7 @@
 	direnv
         tree
 	cascadia-code
+	fastfetch
 	sl
       ];
 

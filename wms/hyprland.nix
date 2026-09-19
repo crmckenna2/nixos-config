@@ -7,15 +7,17 @@
 
     # Install the supporting packages
     environment.systemPackages = with pkgs; [
+      xdg-desktop-portal-hyprland
+      hyprpolkitagent
       brightnessctl
+      qt6-wayland
+      qt5-wayland
       playerctl
-      bluetui
       wev
-      fuzzel
       foot
+      fuzzel
+      bluetui
       librewolf
-      kitty
-      fastfetch
     ];
 
     # Configure the system audio
@@ -25,6 +27,7 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+      wireplumber.enable = true;
     };
 
     # Bluetooth configuration
