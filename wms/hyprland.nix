@@ -19,12 +19,6 @@
       librewolf
     ];
 
-    # Display manager
-    services.displayManager.sddm = {
-      enable = true;
-      wayland.enable = true;
-    };
-
     # Configure the system audio
     security.rtkit.enable = true;
     services.pipewire = {
@@ -48,11 +42,11 @@
 
     # Configure session variables for Nvidia & wayland 
     environment.sessionVariables = {
-      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-      LIBVA_DRIVER_NAME = "nvidia";
+      #__GLX_VENDOR_LIBRARY_NAME = "nvidia";
+      #LIBVA_DRIVER_NAME = "nvidia";
       NIXOS_OZONE_WL = "1";
-      ELECTRON_OZONE_PLATFORM_HINT = "auto";
-      XDG_SESSION_TYPE = "wayland";
+      #ELECTRON_OZONE_PLATFORM_HINT = "auto";
+      #XDG_SESSION_TYPE = "wayland";
     };
 
   };
