@@ -5,6 +5,12 @@
     # Enable hyprland
     programs.hyprland.enable = true;
 
+    # Enable hyprland portals
+    xdg.portal = {
+      enable = true;
+      extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
+    };
+
     # Install the supporting packages
     environment.systemPackages = with pkgs; [
       hyprpolkitagent
@@ -46,9 +52,6 @@
   };
 
   flake.homeModules.hyprland = { pkgs, ... } : {
-
-    # Enable support for user daemons
-    wayland.windowManager.hyprland.systemd.enable = true;
 
   };
 

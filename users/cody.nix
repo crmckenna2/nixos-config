@@ -13,8 +13,7 @@
 	direnv
         tree
 	cascadia-code
-	fastfetch
-	sl
+	fzf
       ];
 
       # Set the default shell
