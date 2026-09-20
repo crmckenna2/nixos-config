@@ -47,7 +47,8 @@
 
   flake.homeModules.hyprland = { pkgs, ... } : {
 
-    #wayland.windowManager.hyprland.enable = true;
+    # Enable support for user daemons
+    wayland.windowManager.hyprland.systemd.enable = true;
 
   };
 
