@@ -6,6 +6,18 @@
     programs.hyprland.enable = true;
     programs.hyprland.withUWSM = true;
 
+    # Launch hyprland at startup
+    services.greetd = {
+      enable = true;
+      settings = rec {
+        initial_session = {
+	  command = "uwsm start hyprland.desktop";
+	  user = "cody";
+	};
+        default_session = initial_session;
+      };
+    };
+
     # Enable hyprland portals
     xdg.portal = {
       enable = true;
