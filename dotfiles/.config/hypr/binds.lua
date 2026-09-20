@@ -3,7 +3,7 @@
 ---------------------
 
 -- Define commands to be executed by keybinds
-local launcher_cmd = "fuzzel --launch-prefix=uwsm-app"
+local launcher_cmd = "uwsm app -- fuzzel '--launch-prefix=uwsm app --'"
 local exit_hyprland_cmd = "command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"
 local raise_volume_cmd = "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
 local lower_volume_cmd = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"

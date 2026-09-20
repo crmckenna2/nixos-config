@@ -17,7 +17,7 @@ hl.on("hyprland.start", function ()
   hl.dispatch(hl.dsp.focus({workspace = "name:U"}))
 
   -- Start a foot server
-  hl.exec_cmd("uwsm-app foot --server")
+  hl.exec_cmd("uwsm app -- foot --server")
 
 end)
 
