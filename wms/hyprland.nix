@@ -9,8 +9,8 @@
     environment.systemPackages = with pkgs; [
       hyprpolkitagent
       brightnessctl
-      #qt6.qtwayland
-      #libsForQt5.qtwayland
+      qt6.qtwayland
+      libsForQt5.qtwayland
       playerctl
       wev
       foot
@@ -40,14 +40,14 @@
       };
     };
 
-    # Configure session variables for Nvidia & wayland 
-    environment.sessionVariables = {
-      #__GLX_VENDOR_LIBRARY_NAME = "nvidia";
-      #LIBVA_DRIVER_NAME = "nvidia";
-      NIXOS_OZONE_WL = "1";
-      #ELECTRON_OZONE_PLATFORM_HINT = "auto";
-      #XDG_SESSION_TYPE = "wayland";
-    };
+    # Configure electron apps to use wayland natively
+    environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  };
+
+  flake.homeModules.hyprland = { pkgs, ... } : {
+
+    #wayland.windowManager.hyprland.enable = true;
 
   };
 

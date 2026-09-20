@@ -33,6 +33,7 @@
     # Configure home manager modules
     home-manager.users.cody.imports = [
       self.homeModules.cody
+      self.homeModules.hyprland
     ];
 
     # Prevent home manager from double installing packages
@@ -75,7 +76,6 @@
       templates = "${config.home.homeDirectory}/files/templates";
       videos = "${config.home.homeDirectory}/files/videos";
     };
-
     # Communication layer for bluetooth headphone buttons
     services.mpris-proxy.enable = true;
 
