@@ -64,8 +64,4 @@
 
   };
 
-  flake.homeModules.hyprland = { pkgs, ... } : {
-
-  };
-
 }
