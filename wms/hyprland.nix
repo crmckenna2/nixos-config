@@ -26,8 +26,6 @@
 
     # Install the supporting packages
     environment.systemPackages = with pkgs; [
-      #hyprpolkitagent
-      mako
       brightnessctl
       qt6.qtwayland
       libsForQt5.qtwayland
@@ -68,7 +66,7 @@
   flake.homeModules.hyprland = { pkgs, config, ... }: {
 
     # Enable the notification daemon
-    #services.mako.enable = true;
+    services.mako.enable = true;
 
     # Enable the polkit agent
     services.hyprpolkitagent.enable = true;
