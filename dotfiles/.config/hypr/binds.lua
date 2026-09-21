@@ -14,7 +14,7 @@ local lower_brightness_cmd = "brightnessctl -e4 -n2 set 5%-"
 local player_next_cmd = "playerctl next"
 local play_pause_cmd = "playerctl play-pause"
 local player_previous_cmd = "playerctl previous"
-local screenshot_cmd = "grim $(xdg-user-dir PICTURES)/$(date +'%b-%d-%Y--%-H:%M:%S-screenshot.png')"
+local screenshot_cmd = 'grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +"%b-%d-%Y--%-H:%M:%S-screenshot.png")'
 
 -- Miscellaneous keybinds 
 hl.bind("SUPER + SPACE", hl.dsp.exec_cmd(launcher_cmd))
