@@ -17,7 +17,7 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("uwsm app -- foot --server")
 
   -- Startup the polkit agent
-  hl.exec_cmd("systemctl --user hyprpolkitagent.service")
+  -- hl.exec_cmd("systemctl --user hyprpolkitagent.service")
 
 end)
 

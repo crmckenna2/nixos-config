@@ -26,7 +26,8 @@
 
     # Install the supporting packages
     environment.systemPackages = with pkgs; [
-      hyprpolkitagent
+      #hyprpolkitagent
+      mako
       brightnessctl
       qt6.qtwayland
       libsForQt5.qtwayland
@@ -61,6 +62,16 @@
 
     # Configure electron apps to use wayland natively
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  };
+
+  flake.homeModules.hyprland = { pkgs, config, ... }: {
+
+    # Enable the notification daemon
+    #services.mako.enable = true;
+
+    # Enable the polkit agent
+    services.hyprpolkitagent.enable = true;
 
   };
 
