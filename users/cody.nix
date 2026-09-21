@@ -32,6 +32,7 @@
     # Configure home manager modules
     home-manager.users.cody.imports = [
       self.homeModules.cody
+      self.homeModules.hyprland
     ];
 
     # Prevent home manager from double installing packages
