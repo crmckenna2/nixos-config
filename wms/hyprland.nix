@@ -21,20 +21,25 @@
     # Enable hyprland portals
     xdg.portal = {
       enable = true;
-      extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-hyprland
+        xdg-desktop-portal-gtk
+      ];
     };
 
     # Install the supporting packages
     environment.systemPackages = with pkgs; [
-      brightnessctl
       qt6.qtwayland
       libsForQt5.qtwayland
+      brightnessctl
       playerctl
-      wev
+      slurp
+      grim
       foot
       fuzzel
-      bluetui
       librewolf
+      bluetui
+      wev
     ];
 
     # Configure the system audio

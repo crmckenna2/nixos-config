@@ -65,6 +65,8 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd(play_pause_cmd), {locked = true})
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(play_pause_cmd), {locked = true})
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(player_previous_cmd), {locked = true})
 
+-- Other top row keybinds
+
 
 -----------------------
 ---- WINDOWS RULES ----
