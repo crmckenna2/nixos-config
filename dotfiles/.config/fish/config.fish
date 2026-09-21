@@ -1,6 +1,7 @@
 if status is-interactive
 
     # Set aliases
+    alias ls="ls --group-directories-first"
     alias la="ls -a --group-directories-first"
     alias rb="sudo nixos-rebuild switch --flake ~/nixos-config"
     alias db="nixos-rebuild dry-build --show-trace --flake ~/nixos-config"
