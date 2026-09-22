@@ -28,13 +28,13 @@ local player_previous_cmd = "playerctl previous"
 local screenshot_cmd = 'grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +"%b-%d-%Y--%-H:%M:%S-screenshot.png")'
 
 -- Miscellaneous keybinds 
-hl.bind(MAIN_MOD + "SPACE", hl.dsp.exec_cmd(launcher_cmd))
-hl.bind(ALTERNATE_MOD + "A", hl.dsp.window.close({}))
-hl.bind(SECONDARY_MOD + ALTERNATE_MOD + "A", hl.dsp.exec_cmd(exit_hyprland_cmd))
-hl.bind(ALTERNATE_MOD + "S", hl.dsp.workspace.toggle_special("scratchpad"))
-hl.bind(SECONDARY_MOD + ALTERNATE_MOD + "S", hl.dsp.window.move({workspace = "special:scratchpad"}))
-hl.bind(ALTERNATE_MOD + "F", hl.dsp.window.fullscreen({mode = "maximized", action = "toggle"}))
-hl.bind(SECONDARY_MOD + ALTERNATE_MOD + "F", hl.dsp.window.fullscreen({mode = "fullscreen", action = "toggle"}))
+hl.bind(MAIN_MOD .. "SPACE", hl.dsp.exec_cmd(launcher_cmd))
+hl.bind(ALTERNATE_MOD .. "A", hl.dsp.window.close({}))
+hl.bind(SECONDARY_MOD .. ALTERNATE_MOD .. "A", hl.dsp.exec_cmd(exit_hyprland_cmd))
+hl.bind(ALTERNATE_MOD .. "S", hl.dsp.workspace.toggle_special("scratchpad"))
+hl.bind(SECONDARY_MOD .. ALTERNATE_MOD .. "S", hl.dsp.window.move({workspace = "special:scratchpad"}))
+hl.bind(ALTERNATE_MOD .. "F", hl.dsp.window.fullscreen({mode = "maximized", action = "toggle"}))
+hl.bind(SECONDARY_MOD .. ALTERNATE_MOD .. "F", hl.dsp.window.fullscreen({mode = "fullscreen", action = "toggle"}))
 
 -- Vim movement
 hl.bind("SUPER + H", hl.dsp.focus({direction = "left"}))
