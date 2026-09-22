@@ -23,7 +23,7 @@
       ./.flake-parts
       ./hosts
       ./users
-      ./wms
+      ./modules
     ]);
 
 }

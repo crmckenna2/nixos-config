@@ -40,6 +40,7 @@
       librewolf
       bluetui
       wev
+      qutebrowser
     ];
 
     # Configure the system audio
@@ -71,7 +72,7 @@
   flake.homeModules.hyprland = { pkgs, config, ... }: {
 
     # Enable the notification daemon
-    services.mako.enable = true;
+    #services.mako.enable = true;
 
     # Enable the polkit agent
     services.hyprpolkitagent.enable = true;
