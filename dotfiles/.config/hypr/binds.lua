@@ -4,14 +4,11 @@
 
 -- Define the modifiers to use
 local MAIN_MOD = "SUPER + "
-local ALTERNATE_MOD = "CONTROL_R + "
+local ALTERNATE_MOD = "MENU + "
 local SECONDARY_MOD = "ALT + "
 
--- On the alienix machine, use MENU instead of CONTROL_R
-if HOSTNAME == "alienix" then
-  ALTERNATE_MOD = "MENU + "
-  hl.bind("MENU", hl.dsp.no_op())
-end
+-- Make sure that no other application uses the MENU key
+hl.bind("MENU", hl.dsp.no_op())
 
 -- Define commands to be executed by keybinds
 local launcher_cmd = "uwsm app -- fuzzel '--launch-prefix=uwsm app --'"
