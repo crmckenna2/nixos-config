@@ -27,23 +27,6 @@
     # Graphical settings
     hardware.graphics.enable = true;
 
-    # Remap CONTROL_R key to the MENU key
-    services.keyd = {
-      enable = true;
-      keyboards = {
-        default = {
-	  ids = [ "*" ];
-	  settings = {
-	    main = {
-	      CONTROL_R = "MENU";
-	    };
-	    otherlayer = {};
-	  };
-	};
-      };
-    };
-
-
     # IMPORTANT: The code below this line is written by the OS
     # Be very deliberate when considering changes to the code below
     imports = [

@@ -2,7 +2,7 @@
 ---- DETERMINE THE HOST ----
 ----------------------------
 local f = io.open("/etc/hostname", "r")
-HOSTNAME = f:read("*a"):gsub("%s+", "")
+local HOSTNAME = f:read("*a"):gsub("%s+", "")
 f:close()
 
 -----------------------

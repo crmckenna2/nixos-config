@@ -6,6 +6,7 @@
 local MAIN_MOD = "SUPER + "
 local ALTERNATE_MOD = "MENU + "
 local SECONDARY_MOD = "ALT + "
+local WORKSPACE_KEYS = {"U", "I", "O", "P", "BRACKETLEFT", "BRACKETRIGHT"}
 
 -- Make sure that no other application uses the MENU key
 hl.bind("MENU", hl.dsp.no_op())
@@ -34,15 +35,16 @@ hl.bind(ALTERNATE_MOD .. "F", hl.dsp.window.fullscreen({mode = "maximized", acti
 hl.bind(SECONDARY_MOD .. ALTERNATE_MOD .. "F", hl.dsp.window.fullscreen({mode = "fullscreen", action = "toggle"}))
 
 -- Vim movement
-hl.bind("SUPER + H", hl.dsp.focus({direction = "left"}))
-hl.bind("SUPER + J", hl.dsp.focus({direction = "down"}))
-hl.bind("SUPER + K", hl.dsp.focus({direction = "up"}))
-hl.bind("SUPER + L", hl.dsp.focus({direction = "right"}))
+hl.bind(MAIN_MOD .. "H", hl.dsp.focus({direction = "left"}))
+hl.bind(MAIN_MOD .. "J", hl.dsp.focus({direction = "down"}))
+hl.bind(MAIN_MOD .. "K", hl.dsp.focus({direction = "up"}))
+hl.bind(MAIN_MOD .. "L", hl.dsp.focus({direction = "right"}))
 
-hl.bind("SUPER + ALT + H", hl.dsp.window.move({direction = "left"}))
-hl.bind("SUPER + ALT + J", hl.dsp.window.move({direction = "down"}))
-hl.bind("SUPER + ALT + K", hl.dsp.window.move({direction = "up"}))
-hl.bind("SUPER + ALT + L", hl.dsp.window.move({direction = "right"}))
+hl.bind(MAIN_MOD .. SECONDARY_MOD .. "H", hl.dsp.window.move({direction = "left"}))
+hl.bind(MAIN_MOD .. SECONDARY_MOD .. "J", hl.dsp.window.move({direction = "down"}))
+hl.bind(MAIN_MOD .. SECONDARY_MOD .. "K", hl.dsp.window.move({direction = "up"}))
+hl.bind(MAIN_MOD .. SECONDARY_MOD .. "L", hl.dsp.window.move({direction = "right"}))
+
 
 -- Workspace keybinds
 hl.bind("SUPER + U", hl.dsp.focus({workspace = 1}))
