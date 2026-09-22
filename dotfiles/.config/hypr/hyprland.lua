@@ -2,7 +2,7 @@
 ---- DETERMINE THE HOST ----
 ----------------------------
 local f = io.open("/etc/hostname", "r")
-hostname = f:read("*a"):gsub("%s+", "")
+HOSTNAME = f:read("*a"):gsub("%s+", "")
 f:close()
 
 -----------------------
@@ -30,12 +30,17 @@ end)
 ---- NVIDIA ----
 ----------------
 
--- Set up Nvidia environment variables
-hl.env("LIBVA_DRIVER_NAME", "nvidia")
-hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
+-- Configure nvidia settings only for alienix
+if HOSTNAME == "alienix" then
 
--- Allow electron apps to use Nvdia drivers
-hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
+  -- Set up Nvidia environment variables
+  hl.env("LIBVA_DRIVER_NAME", "nvidia")
+  hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
+
+  -- Allow electron apps to use Nvdia drivers
+  hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
+
+end
 
 
 -------------------------------
@@ -71,7 +76,9 @@ hl.env("HYPRCURSOR_SIZE", "24")
 ----  MISC  ----
 ----------------
 
-hl.config({ misc = { force_default_wallpaper = 1,    -- Set to 0 or 1 to disable the anime mascot wallpapers
-        disable_hyprland_logo   = false, -- If true disables the random hyprland logo / anime girl background. :(
+hl.config({
+  misc = {
+    force_default_wallpaper = 1,
+    disable_hyprland_logo   = false,
     },
 })

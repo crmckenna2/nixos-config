@@ -2,6 +2,17 @@
 ---- KEYBINDINGS ----
 ---------------------
 
+-- Define the modifiers to use
+local MAIN_MOD = "SUPER + "
+local ALTERNATE_MOD = "CONTROL_R + "
+local SECONDARY_MOD = "ALT + "
+
+-- On the alienix machine, use MENU instead of CONTROL_R
+if HOSTNAME == "alienix" then
+  ALTERNATE_MOD = "MENU + "
+  hl.bind("MENU", hl.dsp.no_op())
+end
+
 -- Define commands to be executed by keybinds
 local launcher_cmd = "uwsm app -- fuzzel '--launch-prefix=uwsm app --'"
 local exit_hyprland_cmd = "uwsm stop"
@@ -17,14 +28,13 @@ local player_previous_cmd = "playerctl previous"
 local screenshot_cmd = 'grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +"%b-%d-%Y--%-H:%M:%S-screenshot.png")'
 
 -- Miscellaneous keybinds 
-hl.bind("SUPER + SPACE", hl.dsp.exec_cmd(launcher_cmd))
-hl.bind("MENU", hl.dsp.no_op(""))
-hl.bind("MENU + A", hl.dsp.window.close({}))
-hl.bind("ALT + MENU + A", hl.dsp.exec_cmd(exit_hyprland_cmd))
-hl.bind("MENU + S", hl.dsp.workspace.toggle_special("scratchpad"))
-hl.bind("ALT + MENU + S", hl.dsp.window.move({workspace = "special:scratchpad"}))
-hl.bind("MENU + F", hl.dsp.window.fullscreen({mode = "maximized", action = "toggle"}))
-hl.bind("ALT + MENU + F", hl.dsp.window.fullscreen({mode = "fullscreen", action = "toggle"}))
+hl.bind(MAIN_MOD + "SPACE", hl.dsp.exec_cmd(launcher_cmd))
+hl.bind(ALTERNATE_MOD + "A", hl.dsp.window.close({}))
+hl.bind(SECONDARY_MOD + ALTERNATE_MOD + "A", hl.dsp.exec_cmd(exit_hyprland_cmd))
+hl.bind(ALTERNATE_MOD + "S", hl.dsp.workspace.toggle_special("scratchpad"))
+hl.bind(SECONDARY_MOD + ALTERNATE_MOD + "S", hl.dsp.window.move({workspace = "special:scratchpad"}))
+hl.bind(ALTERNATE_MOD + "F", hl.dsp.window.fullscreen({mode = "maximized", action = "toggle"}))
+hl.bind(SECONDARY_MOD + ALTERNATE_MOD + "F", hl.dsp.window.fullscreen({mode = "fullscreen", action = "toggle"}))
 
 -- Vim movement
 hl.bind("SUPER + H", hl.dsp.focus({direction = "left"}))
