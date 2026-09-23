@@ -1,18 +1,26 @@
 ----------------------------
 ---- DETERMINE THE HOST ----
 ----------------------------
+local hostname = ""
 local f = io.open("/etc/hostname", "r")
-HOSTNAME = f:read("*a"):gsub("%s+", "")
-f:close()
+if (f ~= nil) then
+  hostname = f:read("*a"):gsub("%s+", "")
+  f:close()
+end
+
 
 -----------------------
 ---- OTHER MODULES ----
 -----------------------
 
+local host_file = "hosts." .. hostname
+local _, _ = pcall(require, host_file)
+
 require("binds")
 require("input-output")
 require("look-feel")
 require("colors")
+
 
 -----------------
 ---- STARTUP ----
@@ -24,23 +32,6 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("uwsm app -- foot --server")
 
 end)
-
-
-----------------
----- NVIDIA ----
-----------------
-
--- Configure nvidia settings only for alienix
-if HOSTNAME == "alienix" then
-
-  -- Set up Nvidia environment variables
-  hl.env("LIBVA_DRIVER_NAME", "nvidia")
-  hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
-
-  -- Allow electron apps to use Nvdia drivers
-  hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
-
-end
 
 
 -------------------------------
