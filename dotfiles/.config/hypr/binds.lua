@@ -43,6 +43,7 @@ hl.bind("SUPER + ALT + L", hl.dsp.window.move({direction = "right"}))
 for workspace_num, key in ipairs(workspace_keys) do
   hl.bind("SUPER + " .. key, hl.dsp.focus({workspace = workspace_num}))
   hl.bind("SUPER + ALT + " .. key, hl.dsp.window.move({workspace = workspace_num}))
+end
 
 -- Top row keybinds
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(raise_volume_cmd), {locked = true, repeating = true})

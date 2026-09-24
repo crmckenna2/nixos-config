@@ -3,16 +3,11 @@
 ----------------------------
 local hostname = ""
 local f = io.open("/etc/hostname", "r")
-<<<<<<< HEAD
 if (f ~= nil) then
   hostname = f:read("*a"):gsub("%s+", "")
   f:close()
 end
 
-=======
-local HOSTNAME = f:read("*a"):gsub("%s+", "")
-f:close()
->>>>>>> 681e8a39417c4db79fb60b7298f1d1055846ad2f
 
 -----------------------
 ---- OTHER MODULES ----
