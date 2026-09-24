@@ -2,16 +2,8 @@
 ---- KEYBINDINGS ----
 ---------------------
 
--- Define the modifiers to use
-local MAIN_MOD = "SUPER + "
-local ALTERNATE_MOD = "CONTROL_R + "
-local SECONDARY_MOD = "ALT + "
-
--- On the alienix machine, use MENU instead of CONTROL_R
-if HOSTNAME == "alienix" then
-  ALTERNATE_MOD = "MENU + "
-  hl.bind("MENU", hl.dsp.no_op())
-end
+-- Define the keys that bind directly to a workspace
+local workspace_keys = {"U", "I", "O", "P", "BRACKETLEFT", "BRACKETRIGHT"}
 
 -- Define commands to be executed by keybinds
 local launcher_cmd = "uwsm app -- fuzzel '--launch-prefix=uwsm app --'"
@@ -28,13 +20,13 @@ local player_previous_cmd = "playerctl previous"
 local screenshot_cmd = 'grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +"%b-%d-%Y--%-H:%M:%S-screenshot.png")'
 
 -- Miscellaneous keybinds 
-hl.bind(MAIN_MOD .. "SPACE", hl.dsp.exec_cmd(launcher_cmd))
-hl.bind(ALTERNATE_MOD .. "A", hl.dsp.window.close({}))
-hl.bind(SECONDARY_MOD .. ALTERNATE_MOD .. "A", hl.dsp.exec_cmd(exit_hyprland_cmd))
-hl.bind(ALTERNATE_MOD .. "S", hl.dsp.workspace.toggle_special("scratchpad"))
-hl.bind(SECONDARY_MOD .. ALTERNATE_MOD .. "S", hl.dsp.window.move({workspace = "special:scratchpad"}))
-hl.bind(ALTERNATE_MOD .. "F", hl.dsp.window.fullscreen({mode = "maximized", action = "toggle"}))
-hl.bind(SECONDARY_MOD .. ALTERNATE_MOD .. "F", hl.dsp.window.fullscreen({mode = "fullscreen", action = "toggle"}))
+hl.bind("SUPER + SPACE", hl.dsp.exec_cmd(launcher_cmd))
+hl.bind("SUPER + SLASH", hl.dsp.window.close({}))
+hl.bind("SUPER + ALT + SLASH", hl.dsp.exec_cmd(exit_hyprland_cmd))
+hl.bind("SUPER + PERIOD", hl.dsp.workspace.toggle_special("scratchpad"))
+hl.bind("SUPER + ALT + PERIOD", hl.dsp.window.move({workspace = "special:scratchpad"}))
+hl.bind("SUPER + F", hl.dsp.window.fullscreen({mode = "maximized", action = "toggle"}))
+hl.bind("SUPER + ALT + F", hl.dsp.window.fullscreen({mode = "fullscreen", action = "toggle"}))
 
 -- Vim movement
 hl.bind("SUPER + H", hl.dsp.focus({direction = "left"}))
@@ -48,23 +40,11 @@ hl.bind("SUPER + ALT + K", hl.dsp.window.move({direction = "up"}))
 hl.bind("SUPER + ALT + L", hl.dsp.window.move({direction = "right"}))
 
 -- Workspace keybinds
-hl.bind("SUPER + U", hl.dsp.focus({workspace = 1}))
-hl.bind("SUPER + I", hl.dsp.focus({workspace = 2}))
-hl.bind("SUPER + O", hl.dsp.focus({workspace = 3}))
-hl.bind("SUPER + P", hl.dsp.focus({workspace = 4}))
-hl.bind("SUPER + BRACKETLEFT", hl.dsp.focus({workspace = 5}))
-hl.bind("SUPER + BRACKETRIGHT", hl.dsp.focus({workspace = 6}))
-hl.bind("SUPER + BACKSLASH", hl.dsp.focus({workspace = 7}))
+for workspace_num, key in ipairs(workspace_keys) do
+  hl.bind("SUPER + " .. key, hl.dsp.focus({workspace = workspace_num}))
+  hl.bind("SUPER + ALT + " .. key, hl.dsp.window.move({workspace = workspace_num}))
 
-hl.bind("SUPER + ALT + U", hl.dsp.window.move({workspace = 1}))
-hl.bind("SUPER + ALT + I", hl.dsp.window.move({workspace = 2}))
-hl.bind("SUPER + ALT + O", hl.dsp.window.move({workspace = 3}))
-hl.bind("SUPER + ALT + P", hl.dsp.window.move({workspace = 4}))
-hl.bind("SUPER + ALT + BRACKETLEFT", hl.dsp.window.move({workspace = 5}))
-hl.bind("SUPER + ALT + BRACKETRIGHT", hl.dsp.window.move({workspace = 6}))
-hl.bind("SUPER + ALT + BACKSLASH", hl.dsp.window.move({workspace = 7}))
-
--- XF86 keybinds
+-- Top row keybinds
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(raise_volume_cmd), {locked = true, repeating = true})
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(lower_volume_cmd), {locked = true, repeating = true})
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd(mute_volume_cmd), {locked = true, repeating = true})
@@ -75,8 +55,6 @@ hl.bind("XF86AudioNext", hl.dsp.exec_cmd(player_next_cmd), {locked = true})
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd(play_pause_cmd), {locked = true})
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(play_pause_cmd), {locked = true})
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(player_previous_cmd), {locked = true})
-
--- Other top row keybinds
 hl.bind("PRINT", hl.dsp.exec_cmd(screenshot_cmd), {locked = true})
 
 
