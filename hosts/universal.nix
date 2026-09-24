@@ -27,6 +27,10 @@
     # Experimental nix features
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+    # Prevent home manager from double installing packages
+    home-manager.useGlobalPkgs = true;
+    home-manager.useUserPackages = true;
+
     # Security
     security.sudo.wheelNeedsPassword = false; 
 

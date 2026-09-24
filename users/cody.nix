@@ -21,7 +21,7 @@
 
     };
 
-    # Enable the default shell
+    # Set the default shell to fish
     programs.fish.enable = true;
 
     # Enable user fonts
@@ -34,10 +34,6 @@
       self.homeModules.cody
       self.homeModules.hyprland
     ];
-
-    # Prevent home manager from double installing packages
-    home-manager.useGlobalPkgs = true;
-    home-manager.useUserPackages = true;
 
   };
 
