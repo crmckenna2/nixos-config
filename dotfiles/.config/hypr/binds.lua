@@ -31,15 +31,15 @@ hl.bind("SUPER + F", hl.dsp.window.fullscreen({mode = "maximized", action = "tog
 hl.bind("SUPER + ALT + F", hl.dsp.window.fullscreen({mode = "fullscreen", action = "toggle"}))
 
 -- Vim movement
-hl.bind("SUPER + H", hl.dsp.layout("focus left"))
+hl.bind("SUPER + H", hl.dsp.layout("focus l"))
 hl.bind("SUPER + J", hl.dsp.focus({direction = "down"}))
 hl.bind("SUPER + K", hl.dsp.focus({direction = "up"}))
-hl.bind("SUPER + L", hl.dsp.layout("focus right"))
+hl.bind("SUPER + L", hl.dsp.layout("focus r"))
 
-hl.bind("SUPER + ALT + H", hl.dsp.layout.layout("swapcol left"))
+hl.bind("SUPER + ALT + H", hl.dsp.layout("swapcol l"))
 hl.bind("SUPER + ALT + J", hl.dsp.window.move({direction = "down"}))
 hl.bind("SUPER + ALT + K", hl.dsp.window.move({direction = "up"}))
-hl.bind("SUPER + ALT + L", hl.dsp.layout.layout("swapcol right"))
+hl.bind("SUPER + ALT + L", hl.dsp.layout("swapcol r"))
 
 -- Workspace keybinds
 for workspace_num, key in ipairs(workspace_keys) do
