@@ -34,10 +34,17 @@
       powerManagement.enable = true;
       open = true;
       nvidiaSettings = true;
-      package = config.boot.kernelPackages.nvidiaPackages.production;
+      package = config.boot.kernelPackages.nvidiaPackages.latest;
     };
 
-    # IMPORTANT: The code below this line is written by the OS
+    # Set up communication utility for the monitor
+    environment.systemPackages = with pkgs; [
+      ddcutil
+    ];
+    hardware.i2c.enable = true;
+    
+
+    # IMPORTANT: The code below this line is mostly written by the OS
     # Be very deliberate when considering changes to the code below
     imports = [
       (modulesPath + "/installer/scan/not-detected.nix")

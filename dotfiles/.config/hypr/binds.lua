@@ -45,13 +45,9 @@ for workspace_num, key in ipairs(workspace_keys) do
   hl.bind("SUPER + ALT + " .. key, hl.dsp.window.move({workspace = workspace_num}))
 end
 
--- LOG keybinds
+-- Other top row keybinds for laptops
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(raise_volume_cmd), {locked = true, repeating = true})
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(lower_volume_cmd), {locked = true, repeating = true})
-hl.bind("CTRL + XF86AudioRaiseVolume", hl.dsp.exec_cmd(raise_brightness_cmd), {locked = true, repeating = true})
-hl.bind("CTRL + XF86AudioLowerVolume", hl.dsp.exec_cmd(lower_brightness_cmd), {locked = true, repeating = true})
-
--- Other top row keybinds for laptops
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd(mute_volume_cmd), {locked = true, repeating = true})
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd(mute_mic_cmd), {locked = true, repeating = true})
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(raise_brightness_cmd), {locked = true, repeating = true})
