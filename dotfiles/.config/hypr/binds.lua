@@ -21,23 +21,25 @@ local screenshot_cmd = 'grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +"%b-
 
 -- Miscellaneous keybinds 
 hl.bind("SUPER + SPACE", hl.dsp.exec_cmd(launcher_cmd))
-hl.bind("SUPER + SLASH", hl.dsp.window.close({}))
-hl.bind("SUPER + ALT + SLASH", hl.dsp.exec_cmd(exit_hyprland_cmd))
-hl.bind("SUPER + PERIOD", hl.dsp.workspace.toggle_special("scratchpad"))
-hl.bind("SUPER + ALT + PERIOD", hl.dsp.window.move({workspace = "special:scratchpad"}))
+hl.bind("SUPER + M", hl.dsp.window.close({}))
+hl.bind("SUPER + ALT + M", hl.dsp.exec_cmd(exit_hyprland_cmd))
+hl.bind("SUPER + COMMA", hl.dsp.workspace.toggle_special("scratchpad"))
+hl.bind("SUPER + ALT + COMMA", hl.dsp.window.move({workspace = "special:scratchpad"}))
+hl.bind("SUPER + PERIOD", hl.dsp.layout("consume"))
+hl.bind("SUPER + SLASH", hl.dsp.layout("promote"))
 hl.bind("SUPER + F", hl.dsp.window.fullscreen({mode = "maximized", action = "toggle"}))
 hl.bind("SUPER + ALT + F", hl.dsp.window.fullscreen({mode = "fullscreen", action = "toggle"}))
 
 -- Vim movement
-hl.bind("SUPER + H", hl.dsp.focus({direction = "left"}))
+hl.bind("SUPER + H", hl.dsp.layout("focus left"))
 hl.bind("SUPER + J", hl.dsp.focus({direction = "down"}))
 hl.bind("SUPER + K", hl.dsp.focus({direction = "up"}))
-hl.bind("SUPER + L", hl.dsp.focus({direction = "right"}))
+hl.bind("SUPER + L", hl.dsp.layout("focus right"))
 
-hl.bind("SUPER + ALT + H", hl.dsp.window.move({direction = "left"}))
+hl.bind("SUPER + ALT + H", hl.dsp.layout.layout("swapcol left"))
 hl.bind("SUPER + ALT + J", hl.dsp.window.move({direction = "down"}))
 hl.bind("SUPER + ALT + K", hl.dsp.window.move({direction = "up"}))
-hl.bind("SUPER + ALT + L", hl.dsp.window.move({direction = "right"}))
+hl.bind("SUPER + ALT + L", hl.dsp.layout.layout("swapcol right"))
 
 -- Workspace keybinds
 for workspace_num, key in ipairs(workspace_keys) do

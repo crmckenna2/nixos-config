@@ -7,10 +7,10 @@ hl.config({
 
     layout = "scrolling",
 
-    gaps_in  = 8,
-    gaps_out = 8,
+    gaps_in  = 10,
+    gaps_out = 10,
 
-    border_size = 2,
+    border_size = 4,
 
     -- allow_tearing = false,
 
@@ -18,8 +18,8 @@ hl.config({
 
   decoration = {
 
-    rounding = 10,
-    rounding_power = 2,
+    rounding = 0,
+    rounding_power = 0,
 
     blur = {
       enabled = true,
@@ -38,6 +38,9 @@ hl.config({
 
   scrolling = {
     fullscreen_on_one_column = true,
+    explicit_column_widths = "0.5, 1.0",
+    wrap_swapcol = false,
+    wrap_focus = false,
   },
 
   animations = {
