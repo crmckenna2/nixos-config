@@ -24,7 +24,7 @@ if status is-interactive
     set -g fish_prompt_pwd_dir_length 0
 
     # Add the user made scripts to the path
-    fish_add_path -g ~/.local/scripts
+    fish_add_path -g ~/.local/bin
 
     # Enable direnv
     direnv hook fish | source

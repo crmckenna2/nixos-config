@@ -20,8 +20,8 @@ end
 --------------------
 
 -- Brightness commands
-local raise_brightness_cmd = "flock -n /tmp/ddcutil.lock ddcutil --bus 3 setvcp 10 + 10"
-local lower_brightness_cmd = "flock -n /tmp/ddcutil.lock ddcutil --bus 3 setvcp 10 - 10"
+local raise_brightness_cmd = "flock -n /tmp/ddcutil.lock ddcutil --bus 3 setvcp 10 + 20"
+local lower_brightness_cmd = "flock -n /tmp/ddcutil.lock ddcutil --bus 3 setvcp 10 - 20"
 
 -- LOG keybinds
 hl.bind("CTRL + XF86AudioRaiseVolume", hl.dsp.exec_cmd(raise_brightness_cmd), {locked = true, repeating = true})
