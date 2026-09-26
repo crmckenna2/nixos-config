@@ -4,6 +4,7 @@
 
     # Universal packages
     environment.systemPackages = with pkgs; [
+      neovim
       git
       btop
     ];
