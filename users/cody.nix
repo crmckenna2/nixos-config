@@ -8,12 +8,8 @@
       description = "cody";
       extraGroups = [ "networkmanager" "wheel" ];
       packages = with pkgs; [
-        neovim
         fishMinimal
-	direnv
-        tree
-	cascadia-code
-	fzf
+        cascadia-code
       ];
 
       # Set the default shell
