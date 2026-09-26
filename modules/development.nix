@@ -17,7 +17,7 @@
       nh
 
       # Lua development
-      lua_language_server
+      lua-language-server
 
     ];
 
