@@ -1,4 +1,4 @@
-{ self, inputs, ... }: {
+{ ... }: {
 
   flake.nixosModules.hyprland = { pkgs, ... }: {
 
@@ -31,6 +31,7 @@
     environment.systemPackages = with pkgs; [
       qt6.qtwayland
       libsForQt5.qtwayland
+      quickshell
       brightnessctl
       playerctl
       slurp
