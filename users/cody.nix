@@ -24,8 +24,8 @@
       self.homeModules.hyprland
     ];
 
-    # Set the default shell to fish
-    #programs.fish.enable = true;
+    # Enable fish as a possible shell
+    programs.fish.enable = true;
 
   };
 
