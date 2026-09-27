@@ -1,4 +1,4 @@
-{ self, inputs, ... }: {
+{ ... }: {
 
   flake.nixosModules.development = { pkgs, ... }: {
 
@@ -7,11 +7,12 @@
 
       # General utilities
       git
-      neovim
       tree
+      ripgrep
       fzf
 
       # Nix development
+      nix-index
       direnv
       nixd
       nh

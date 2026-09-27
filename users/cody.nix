@@ -1,4 +1,4 @@
-{ self, inputs, ...}: {
+{ self, ...}: {
 
   flake.nixosModules.cody = { pkgs, ...}: {
 
@@ -33,7 +33,7 @@
 
   };
 
-  flake.homeModules.cody = { pkgs, config, ... } : {
+  flake.homeModules.cody = { config, pkgs, ... } : {
 
     # Provide basic user info
     home.username = "cody";
@@ -41,6 +41,31 @@
 
     # Enable home manager
     programs.home-manager.enable = true;
+
+    # Configure neovim
+    programs.neovim = {
+      enable = true;
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+      extraPackages = with pkgs; [
+
+        # Nix LSP
+        nixd
+
+        # Lua LSP
+        lua-language-server
+
+        # QML LSP
+        kdePackages.qtdeclarative.bin
+
+      ];
+
+      plugins = with pkgs.vimPlugins; [
+        nvim-lspconfig
+      ];
+
+    };
 
     # Clean up the home directory
     xdg.enable = true;
