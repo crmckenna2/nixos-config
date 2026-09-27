@@ -45,7 +45,7 @@
 
       ];
 
-      initLua = ''require("main")'';
+      initLua = ''require("init")'';
 
     };
 
