@@ -11,9 +11,9 @@
       enable = true;
       settings = rec {
         initial_session = {
-	  command = "uwsm start hyprland.desktop";
-	  user = "cody";
-	};
+          command = "uwsm start hyprland.desktop";
+          user = "cody";
+        };
         default_session = initial_session;
       };
     };
@@ -60,17 +60,22 @@
       powerOnBoot = true;
       settings = {
         Policy = {
-	  Experimental = true;
-	};
+          Experimental = true;
+        };
       };
     };
+
+    # Fonts
+    fonts.packages = with pkgs; [
+      cascadia-code
+    ];
 
     # Configure electron apps to use wayland natively
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   };
 
-  flake.homeModules.hyprland = { pkgs, config, ... }: {
+  flake.homeModules.hyprland = { ... }: {
 
     # Enable the notification daemon
     #services.mako.enable = true;

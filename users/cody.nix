@@ -17,23 +17,19 @@
 
     };
 
-    # Set the default shell to fish
-    programs.fish.enable = true;
-
-    # Enable user fonts
-    fonts.packages = with pkgs; [
-      cascadia-code
-    ];
-
     # Configure home manager modules
     home-manager.users.cody.imports = [
       self.homeModules.cody
+      self.homeModules.neovim
       self.homeModules.hyprland
     ];
 
+    # Set the default shell to fish
+    #programs.fish.enable = true;
+
   };
 
-  flake.homeModules.cody = { config, pkgs, ... } : {
+  flake.homeModules.cody = { config, ... } : {
 
     # Provide basic user info
     home.username = "cody";
@@ -41,35 +37,6 @@
 
     # Enable home manager
     programs.home-manager.enable = true;
-
-    # Configure neovim
-    programs.neovim = {
-
-      enable = true;
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
-
-      extraPackages = with pkgs; [
-
-        # Nix LSP
-        nixd
-
-        # Lua LSP
-        lua-language-server
-
-        # QML LSP, yes that is the package name
-        kdePackages.qtdeclarative
-
-      ];
-
-      plugins = with pkgs.vimPlugins; [
-        nvim-lspconfig
-      ];
-
-      initLua = ''require("main")'';
-
-    };
 
     # Clean up the home directory
     xdg.enable = true;

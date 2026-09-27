@@ -5,6 +5,9 @@
     # Packages
     environment.systemPackages = with pkgs; [
 
+      # Compilers
+      gcc
+
       # General utilities
       git
       tree
