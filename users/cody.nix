@@ -44,10 +44,12 @@
 
     # Configure neovim
     programs.neovim = {
+
       enable = true;
       defaultEditor = true;
       viAlias = true;
       vimAlias = true;
+
       extraPackages = with pkgs; [
 
         # Nix LSP
@@ -56,14 +58,16 @@
         # Lua LSP
         lua-language-server
 
-        # QML LSP
-        kdePackages.qtdeclarative.bin
+        # QML LSP, yes that is the package name
+        kdePackages.qtdeclarative
 
       ];
 
       plugins = with pkgs.vimPlugins; [
         nvim-lspconfig
       ];
+
+      initLua = ''require("main")'';
 
     };
 

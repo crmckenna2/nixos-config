@@ -14,6 +14,7 @@
       # Nix development
       nix-index
       direnv
+      comma
       nixd
       nh
 

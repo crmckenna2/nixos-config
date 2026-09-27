@@ -5,7 +5,6 @@ if status is-interactive
     alias la="ls --color=auto -a --group-directories-first"
     alias rb="sudo nixos-rebuild switch --flake ~/nixos-config"
     alias db="nixos-rebuild dry-build --show-trace --flake ~/nixos-config"
-    alias nv="nvim"
     alias gpu="nvidia-smi"
 
     # Allow vim keybinds
