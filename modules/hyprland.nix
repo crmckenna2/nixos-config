@@ -32,6 +32,7 @@
       qt6.qtwayland
       libsForQt5.qtwayland
       quickshell
+      hyprpolkitagent
       brightnessctl
       playerctl
       slurp
