@@ -75,14 +75,4 @@
 
   };
 
-  flake.homeModules.hyprland = { ... }: {
-
-    # Enable the notification daemon
-    #services.mako.enable = true;
-
-    # Enable the polkit agent
-    services.hyprpolkitagent.enable = true;
-
-  };
-
 }

@@ -12,9 +12,6 @@
 
       extraPackages = with pkgs; [
 
-        # Treesitter dependency
-        tree-sitter-cli
-
         # Nix LSP
         nixd
 

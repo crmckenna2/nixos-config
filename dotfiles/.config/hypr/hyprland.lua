@@ -31,6 +31,8 @@ hl.on("hyprland.start", function ()
   -- Start a foot server
   hl.exec_cmd("uwsm app -- foot --server")
 
+  hl.exec_cmd("systemctl --user start hyprpolkitagent.service")
+
 end)
 
 
