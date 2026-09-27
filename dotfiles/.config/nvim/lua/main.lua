@@ -41,6 +41,6 @@ opt.hlsearch = false
 ---- LANGUAGE SERVERS ----
 --------------------------
 
+vim.lsp.enable("lua_ls")
 vim.lsp.enable("nixd")
-vim.lsp.enable("lua_ls")
-vim.lsp.enable("lua_ls")
+vim.lsp.enable("qmlls")
