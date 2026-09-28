@@ -44,7 +44,6 @@
         nvim-lspconfig
 
         # Telescope.nvim and its dependencies
-        telescope-fzf-native-nvim
         telescope-nvim
         nvim-web-devicons
 

@@ -12,6 +12,7 @@
       git
       tree
       ripgrep
+      fzf
       fd
 
       # Nix development
