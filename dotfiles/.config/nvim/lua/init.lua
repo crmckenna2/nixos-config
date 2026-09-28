@@ -2,15 +2,7 @@
 ---- KEYBINDS ----
 ------------------
 
-local map = vim.keymap.set
-
--- Leader key
-vim.g.mapleader = ' '
-
--- Global copy and paste
-map({ 'n', 'v' }, '<leader>y', '"+y')
-map({ 'n', 'v' }, '<leader>p', '"+p')
-
+--local map = vim.keymap.set
 
 -----------------
 ---- OPTIONS ----
@@ -36,6 +28,9 @@ opt.ignorecase = true
 opt.smartcase = true
 opt.hlsearch = false
 
+-- Clipboard config
+opt.clipboard = "unnamedplus"
+
 
 --------------------------
 ---- LANGUAGE SERVERS ----
@@ -44,3 +39,35 @@ opt.hlsearch = false
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("nixd")
 vim.lsp.enable("qmlls")
+
+---------------------
+---- TREE SITTER ----
+---------------------
+
+-- Declare the languages to use treesitter for
+local treesitter_languages = {
+  "lua",
+  "nix",
+  "qmljs",
+  "markdown",
+  "json",
+  "csv"
+}
+
+-- Enable tree sitter features in the above filetypes
+vim.api.nvim_create_autocmd("Filetype", {
+  pattern = treesitter_languages,
+  callback = function()
+
+    -- Enable highlighting
+    vim.treesitter.start()
+
+    -- Enable treesitter folding
+    vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+    vim.wo[0][0].foldmethod = 'expr'
+
+    -- Enable treesitter indenting
+    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+
+  end
+})
