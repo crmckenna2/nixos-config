@@ -2,13 +2,17 @@
 ---- KEYBINDS ----
 ------------------
 
---local map = vim.keymap.set
+-- local map = vim.keymap.set
+
+-- TODO
+
 
 -----------------
 ---- OPTIONS ----
 -----------------
 
 local opt = vim.opt
+local o = vim.o
 
 -- Line numbers
 opt.number = true
@@ -16,6 +20,9 @@ opt.relativenumber = true
 opt.signcolumn = "yes"
 opt.statuscolumn = "%s%l  "
 opt.wrap = false
+
+-- Set reference column
+-- vim.opt.colorcolumn = '80'
 
 -- Tab configuration
 opt.tabstop = 2
@@ -28,8 +35,53 @@ opt.ignorecase = true
 opt.smartcase = true
 opt.hlsearch = false
 
--- Clipboard config
+-- Use the system clipboard
 opt.clipboard = "unnamedplus"
+
+-- Do not fold an entire file upon opening it
+opt.foldenable = false
+opt.foldlevel = 20
+
+-- Enable mouse mode
+o.mouse = "a"
+
+
+-----------------
+---- THEMING ----
+-----------------
+
+-- TODO
+
+
+---------------------
+---- DIAGNOSTICS ----
+---------------------
+
+vim.diagnostic.config {
+
+  -- General settings
+  update_in_insert = false,
+  underline = true,
+  severity_sort = true,
+
+  -- Start each error message with a ● for each error
+  virtual_text = {
+    prefix = "●",
+  },
+
+  -- Floating error message when using [d and ]d
+  float = { source = 'if_many' },
+  jump = {
+    on_jump = function(_, bufnr)
+      vim.diagnostic.open_float {
+        bufnr = bufnr,
+        scope = 'cursor',
+        focus = false,
+      }
+    end,
+  },
+
+}
 
 
 --------------------------
