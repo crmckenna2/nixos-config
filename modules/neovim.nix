@@ -43,9 +43,17 @@
         # LSP config
         nvim-lspconfig
 
+        # Telescope.nvim and its dependencies
+        telescope-nvim
+
       ];
 
+      # Include my non-nix managed neovim config
       initLua = ''require("init")'';
+
+      # Prevent nixps from yelling at me
+      withPython3 = false;
+      withRuby = false;
 
     };
 
