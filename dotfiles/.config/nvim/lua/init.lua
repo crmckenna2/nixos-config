@@ -131,6 +131,7 @@ local telescope = require("telescope")
 local actions = require("telescope.actions")
 
 telescope.setup({
+
   defaults = {
 
     -- Use sharp corners instead of rounded ones
@@ -141,9 +142,22 @@ telescope.setup({
       i = {
         ["<esc>"] = actions.close
       }
-    }
+    },
 
-  }
+  },
+
+  -- Include hidden files, but not .git files
+  pickers = {
+    find_files = {
+      find_command = { "rg", "--ignore-case", "--files", "--hidden", "--glob", "!.git" },
+    },
+    live_grep = {
+      additional_args = function()
+        return { "--ignore-case", "--hidden", "--glob", "!.git" }
+      end
+    }
+  },
+
 })
 
 -- Telescope keymaps
@@ -151,7 +165,6 @@ map('n', '<leader>ff', "<CMD>Telescope find_files<CR>", { desc = 'Telescope find
 map('n', '<leader>fg', "<CMD>Telescope live_grep<CR>", { desc = 'Telescope live grep' })
 map('n', '<leader>fb', "<CMD>Telescope buffers<CR>", { desc = 'Telescope buffers' })
 map('n', '<leader>fh', "<CMD>Telescope help_tags<CR>", { desc = 'Telescope help tags' })
-
 
 -------------------
 ---- ASTHETICS ----
