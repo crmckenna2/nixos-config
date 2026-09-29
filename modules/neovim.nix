@@ -25,6 +25,9 @@
 
       plugins = with pkgs.vimPlugins; [
 
+        # LSP config
+        nvim-lspconfig
+
         # Treesitter and its parsers
         (nvim-treesitter.withPlugins ( plugins : with plugins; [
           
@@ -40,12 +43,14 @@
 
         ]))
 
-        # LSP config
-        nvim-lspconfig
-
-        # Telescope.nvim and its dependencies
-        telescope-nvim
+        # Icons for other plugins
         nvim-web-devicons
+
+        # Telescope
+        telescope-nvim
+
+        # Aesthetic plugins
+        indent-blankline-nvim
 
       ];
 

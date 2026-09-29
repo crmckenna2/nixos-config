@@ -2,7 +2,11 @@
 ---- KEYBINDS ----
 ------------------
 
--- local map = vim.keymap.set
+local map = vim.keymap.set
+local g = vim.g
+
+-- Key to use in all custom keybinds
+g.mapleader = " "
 
 -- TODO
 
@@ -46,13 +50,6 @@ opt.foldlevel = 20
 o.mouse = "a"
 
 
------------------
----- THEMING ----
------------------
-
--- TODO
-
-
 ---------------------
 ---- DIAGNOSTICS ----
 ---------------------
@@ -84,13 +81,14 @@ vim.diagnostic.config {
 }
 
 
---------------------------
+-------------------------
 ---- LANGUAGE SERVERS ----
 --------------------------
 
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("nixd")
 vim.lsp.enable("qmlls")
+
 
 ---------------------
 ---- TREE SITTER ----
@@ -123,3 +121,43 @@ vim.api.nvim_create_autocmd("Filetype", {
 
   end
 })
+
+
+-------------------
+---- TELESCOPE ----
+-------------------
+
+local telescope = require("telescope")
+local actions = require("telescope.actions")
+
+telescope.setup({
+  defaults = {
+
+    -- Use sharp corners instead of rounded ones
+    borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+
+    -- Close telescope on escape, instead of entering normal mode
+    mappings = {
+      i = {
+        ["<esc>"] = actions.close
+      }
+    }
+
+  }
+})
+
+-- Telescope keymaps
+map('n', '<leader>ff', "<CMD>Telescope find_files<CR>", { desc = 'Telescope find files' })
+map('n', '<leader>fg', "<CMD>Telescope live_grep<CR>", { desc = 'Telescope live grep' })
+map('n', '<leader>fb', "<CMD>Telescope buffers<CR>", { desc = 'Telescope buffers' })
+map('n', '<leader>fh', "<CMD>Telescope help_tags<CR>", { desc = 'Telescope help tags' })
+
+
+-------------------
+---- ASTHETICS ----
+-------------------
+
+-- Indent the blanklines
+--require("ibl").setup()
+
+-- TODO
