@@ -170,7 +170,4 @@ map('n', '<leader>fh', "<CMD>Telescope help_tags<CR>", { desc = 'Telescope help 
 ---- ASTHETICS ----
 -------------------
 
--- Indent the blanklines
---require("ibl").setup()
-
 -- TODO

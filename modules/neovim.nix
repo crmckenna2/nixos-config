@@ -49,9 +49,6 @@
         # Telescope
         telescope-nvim
 
-        # Aesthetic plugins
-        indent-blankline-nvim
-
       ];
 
       # Include my non-nix managed neovim config
