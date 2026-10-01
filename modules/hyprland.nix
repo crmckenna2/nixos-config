@@ -66,6 +66,9 @@
       };
     };
 
+    # Qt for quickshell
+    qt.enable = true;
+
     # Fonts
     fonts.packages = with pkgs; [
       cascadia-code
