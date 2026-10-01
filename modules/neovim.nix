@@ -49,6 +49,9 @@
         # Telescope
         telescope-nvim
 
+        # Asthetic plugins
+        nvim-colorizer-lua
+
       ];
 
       # Include my non-nix managed neovim config

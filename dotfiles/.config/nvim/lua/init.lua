@@ -11,12 +11,11 @@ g.mapleader = " "
 -- TODO
 
 
------------------
----- OPTIONS ----
------------------
+------------------------
+---- GENRAL OPTIONS ----
+------------------------
 
 local opt = vim.opt
-local o = vim.o
 
 -- Line numbers
 opt.number = true
@@ -47,7 +46,7 @@ opt.foldenable = false
 opt.foldlevel = 20
 
 -- Enable mouse mode
-o.mouse = "a"
+opt.mouse = "a"
 
 
 ---------------------
@@ -170,4 +169,10 @@ map('n', '<leader>fh', "<CMD>Telescope help_tags<CR>", { desc = 'Telescope help 
 ---- ASTHETICS ----
 -------------------
 
--- TODO
+-- Use full color display
+opt.termguicolors = true
+
+-- Display the colors of hex codes inside of neovim
+require("colorizer").setup({
+  RRGGBBAA = true
+})
