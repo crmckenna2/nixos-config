@@ -8,7 +8,15 @@ local g = vim.g
 -- Key to use in all custom keybinds
 g.mapleader = " "
 
--- TODO
+-- More convenient keybinds for switching windows
+map("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
+map("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
+map("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+map("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+
+-- Open and close tabs
+map("n", "<leader>t", "<CMD>tabnew<CR>", { desc = "Open a new tab" })
+map("n", "<leader>q", "<CMD>tabclose<CR>", { desc = "Close the current tab" })
 
 
 -------------------------
@@ -17,12 +25,15 @@ g.mapleader = " "
 
 local opt = vim.opt
 
--- Line numbers
+-- Status column layout
 opt.number = true
 opt.relativenumber = true
 opt.signcolumn = "yes"
 opt.statuscolumn = "%s%l  "
+
+-- Row properties
 opt.wrap = false
+opt.cursorline = true
 
 -- Set reference column
 -- vim.opt.colorcolumn = '80'
@@ -66,12 +77,12 @@ vim.diagnostic.config {
   },
 
   -- Floating error message when using [d and ]d
-  float = { source = 'if_many' },
+  float = { source = "if_many" },
   jump = {
     on_jump = function(_, bufnr)
       vim.diagnostic.open_float {
         bufnr = bufnr,
-        scope = 'cursor',
+        scope = "cursor",
         focus = false,
       }
     end,
@@ -112,8 +123,8 @@ vim.api.nvim_create_autocmd("Filetype", {
     vim.treesitter.start()
 
     -- Enable treesitter folding
-    vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-    vim.wo[0][0].foldmethod = 'expr'
+    vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    vim.wo[0][0].foldmethod = "expr"
 
     -- Enable treesitter indenting
     vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
@@ -160,18 +171,25 @@ telescope.setup({
 })
 
 -- Telescope keymaps
-map('n', '<leader>ff', "<CMD>Telescope find_files<CR>", { desc = 'Telescope find files' })
-map('n', '<leader>fg', "<CMD>Telescope live_grep<CR>", { desc = 'Telescope live grep' })
-map('n', '<leader>fb', "<CMD>Telescope buffers<CR>", { desc = 'Telescope buffers' })
-map('n', '<leader>fh', "<CMD>Telescope help_tags<CR>", { desc = 'Telescope help tags' })
+map("n", "<leader>ff", "<CMD>Telescope find_files<CR>", { desc = "Telescope find files" })
+map("n", "<leader>fg", "<CMD>Telescope live_grep<CR>", { desc = "Telescope live grep" })
+map("n", "<leader>fb", "<CMD>Telescope buffers<CR>", { desc = "Telescope buffers" })
+map("n", "<leader>fh", "<CMD>Telescope help_tags<CR>", { desc = "Telescope help tags" })
 
 
 -------------
 ---- OIL ----
 -------------
 
-require("oil").setup()
-map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory." })
+-- Show hidden files
+require("oil").setup({
+  view_options = {
+    show_hidden = false
+  }
+})
+
+-- Map - to opening oil
+map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 
 -------------------
