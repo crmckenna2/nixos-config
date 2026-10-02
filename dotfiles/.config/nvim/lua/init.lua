@@ -170,7 +170,7 @@ map('n', '<leader>fh', "<CMD>Telescope help_tags<CR>", { desc = 'Telescope help 
 ---- OIL ----
 -------------
 
-require("oil-nvim").setup()
+require("oil").setup()
 map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory." })
 
 
