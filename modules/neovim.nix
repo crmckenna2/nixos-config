@@ -49,6 +49,9 @@
         # Telescope
         telescope-nvim
 
+        # Oil
+        oil-nvim
+
         # Asthetic plugins
         nvim-colorizer-lua
 
