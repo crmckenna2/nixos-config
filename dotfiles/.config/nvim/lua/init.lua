@@ -193,7 +193,7 @@ map("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 
 -------------------
----- ASTHETICS ----
+---- AESTHETICS ----
 -------------------
 
 -- Use full color display

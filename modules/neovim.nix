@@ -23,11 +23,7 @@
 
       ];
 
-      plugins = with pkgs.vimPlugins; [
-
-        # LSP config
-        nvim-lspconfig
-
+      plugins = with pkgs.vimPlugins; [ # LSP config nvim-lspconfig
         # Treesitter and its parsers
         (nvim-treesitter.withPlugins ( plugins : with plugins; [
           
@@ -52,9 +48,10 @@
         # Oil
         oil-nvim
 
-        # Asthetic plugins
+        # Aesthetic plugins
         lualine-nvim
         nvim-colorizer-lua
+        mini-base16
 
       ];
 
