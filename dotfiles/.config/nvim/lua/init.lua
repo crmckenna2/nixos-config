@@ -203,3 +203,22 @@ opt.termguicolors = true
 require("colorizer").setup({
   RRGGBBAA = true
 })
+
+-- Relace the status line at the bottom of neovim with a nicer one
+require("lualine").setup({
+
+  -- Minimalize the bar
+  sections = {
+    lualine_a = {"mode"},
+    lualine_b = {"filename"},
+    lualine_c = {},
+    lualine_x = {"diagnostics"},
+    lualine_y = {"diff", "branch"},
+    lualine_z = {"location"}
+
+  }
+
+})
+
+-- Minimalize the standard status bar
+opt.showmode = false

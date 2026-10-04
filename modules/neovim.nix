@@ -53,6 +53,7 @@
         oil-nvim
 
         # Asthetic plugins
+        lualine-nvim
         nvim-colorizer-lua
 
       ];
