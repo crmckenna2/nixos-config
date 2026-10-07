@@ -25,8 +25,8 @@
 
       # Direct ollama to the above user
       user = "ollama";
-      home = "${config.users.users.ollama.home}";
-      models = "${config.services.ollama.home}/models";
+      home = "/home/ollama";
+      models = "/home/ollama/models";
 
     };
 
