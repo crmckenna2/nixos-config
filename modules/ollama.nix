@@ -16,9 +16,10 @@
       # Use nvidia gpu for llm inference
       package = pkgs.ollama-cuda;
 
-      # Declaratively manage model installation syncModels = true;
+      # Declaratively manage model installation
+      syncModels = true;
       loadModels = [
-        #"hf.co/DavidAU/Qwen3.5-9B-The-Defiant-Fable-Uncensored-Heretic-NEO-IMATRIX-MAX-MTP-GGUF:Q4_K_M"
+        "hf.co/DavidAU/Qwen3.5-9B-The-Defiant-Fable-Uncensored-Heretic-NEO-IMATRIX-MAX-MTP-GGUF:Q4_K_M"
       ];
 
       # Direct ollama to the above user
