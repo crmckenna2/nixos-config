@@ -12,6 +12,7 @@
       self.nixosModules.cody
       self.nixosModules.hyprland
       self.nixosModules.development
+      self.nixosModules.ollama
     ];
 
   };

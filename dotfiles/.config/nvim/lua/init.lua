@@ -7,7 +7,6 @@ local g = vim.g
 
 -- Key to use in all custom keybinds
 g.mapleader = " "
-
 -- More convenient keybinds for switching windows
 map("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
 map("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
