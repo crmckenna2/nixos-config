@@ -3,12 +3,10 @@
   flake.nixosModules.ollama = { pkgs, config, ... }: {
 
     # Create a user for ollama to operate under
-    users.users.ollama = {
-
-      name = "ollama";
-      home = "/home/ollama";
-
-    };
+    #users.users.ollama = {
+    #  name = "ollama";
+    #  home = "/home/ollama";
+    #};
 
     # Ollama settings
     services.ollama = {
@@ -24,9 +22,9 @@
       ];
 
       # Direct ollama to the above user
-      user = "ollama";
-      home = "/home/ollama";
-      models = "/home/ollama/models";
+      #user = "ollama";
+      #home = "/home/ollama";
+      #modelsDir = "/home/ollama/models";
 
     };
 
