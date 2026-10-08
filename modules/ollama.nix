@@ -19,7 +19,10 @@
       # Declaratively manage model installation
       syncModels = true;
       loadModels = [
+        "deepseek-r1:8b"
+        "llama3.1"
         "hf.co/DavidAU/Qwen3.5-9B-The-Defiant-Fable-Uncensored-Heretic-NEO-IMATRIX-MAX-MTP-GGUF:Q4_K_M"
+        "huihui_ai/qwen3-vl-abliterated:8b-instruct"
       ];
 
       # Direct ollama to the above user
