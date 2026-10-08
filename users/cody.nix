@@ -10,6 +10,8 @@
       packages = with pkgs; [
         fishMinimal
         cascadia-code
+        unzip
+        zip
       ];
 
       # Set the default shell
