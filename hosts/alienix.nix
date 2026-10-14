@@ -13,6 +13,7 @@
       self.nixosModules.hyprland
       self.nixosModules.development
       self.nixosModules.ollama
+      self.nixosModules.gaming
     ];
 
   };
