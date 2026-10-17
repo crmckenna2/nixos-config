@@ -1,6 +1,6 @@
 { ... }: {
 
-  flake.nixosModules.universal = { pkgs, ... }: {
+  flake.nixosModules.common = { pkgs, ... }: {
 
     # Universal packages
     environment.systemPackages = with pkgs; [
@@ -16,7 +16,7 @@
     # Personalized networking
     networking.hosts = {
       "0.0.0.0" = [
-    #    "www.youtube.com"
+        "www.youtube.com"
         "m.youtube.com"
         "youtube.com"
       ];
