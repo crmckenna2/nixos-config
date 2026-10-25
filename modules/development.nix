@@ -17,6 +17,7 @@
 
       # Nix development
       nix-index
+      nix-direnv
       direnv
       comma
       nixd
@@ -26,6 +27,11 @@
       lua-language-server
 
     ];
+
+    programs.direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
 
   };
 

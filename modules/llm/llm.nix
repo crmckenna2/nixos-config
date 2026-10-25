@@ -1,4 +1,4 @@
-{ ... }: {
+{ self, ... }: {
 
   flake.nixosModules.llm = { pkgs, ... }: {
 
@@ -15,11 +15,23 @@
         opencode
 
         # Nix support for the agents
-        nix-index
         direnv
+        nix-direnv
+        nix-index
+
+        # Other utilites
+        git
+        ripgrep
+        fd
 
       ];
 
+    };
+
+    # Enable direnv
+    programs.direnv = {
+      enable = true;
+      nix-direnv.enable = true;
     };
 
     # Ollama settings
@@ -39,6 +51,32 @@
         "huihui_ai/qwen3-vl-abliterated:8b-instruct"
       ];
 
+    };
+
+    home-manager.users.llm.imports = [
+      self.homeModules.llm
+    ];
+
+  };
+
+  flake.homeModules.llm = { ... }: {
+    
+    # Provide basic user info
+    home.username = "llm";
+    home.homeDirectory = "/home/llm";
+    home.stateVersion = "26.05";
+
+    # Enable home manager
+    programs.home-manager.enable = true;
+
+    # Clean up the home directory
+    xdg.enable = true;
+
+    # Symlink the opencode config
+    home.file.".config/opencode" = {
+      source = ./opencode-config;
+      recursive = true;
+      force = true;
     };
 
   };
