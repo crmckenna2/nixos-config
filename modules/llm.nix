@@ -9,7 +9,7 @@
     #};
 
     # LLM packages
-    system.environmentPackages = with pkgs; [
+    environment.systemPackages = with pkgs; [
       opencode
     ];
 
