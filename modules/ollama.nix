@@ -1,12 +1,17 @@
 { ... }: {
 
-  flake.nixosModules.ollama = { pkgs, config, ... }: {
+  flake.nixosModules.llm = { pkgs, ... }: {
 
-    # Create a user for ollama to operate under
-    #users.users.ollama = {
-    #  name = "ollama";
-    #  home = "/home/ollama";
+    # Create a user for llms to operate under
+    #users.users.llm = {
+    #  name = "llm";
+    #  home = "/home/llm";
     #};
+
+    # LLM packages
+    system.environmentPackages = with pkgs; [
+      opencode
+    ];
 
     # Ollama settings
     services.ollama = {
@@ -26,9 +31,9 @@
       ];
 
       # Direct ollama to the above user
-      #user = "ollama";
-      #home = "/home/ollama";
-      #modelsDir = "/home/ollama/models";
+      #user = "llm";
+      #home = "/home/llm";
+      #modelsDir = "/home/llm/models";
 
     };
 
