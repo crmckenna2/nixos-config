@@ -14,7 +14,8 @@
         # Agentic coding
         opencode
 
-        # Nix support the agents
+        # Nix support for the agents
+        nix-index
         direnv
 
       ];
