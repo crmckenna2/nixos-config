@@ -23,7 +23,10 @@
 
       ];
 
-      plugins = with pkgs.vimPlugins; [ # LSP config nvim-lspconfig
+      plugins = with pkgs.vimPlugins; [
+        # LSP config
+        nvim-lspconfig
+
         # Treesitter and its parsers
         (nvim-treesitter.withPlugins ( plugins : with plugins; [
           

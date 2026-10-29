@@ -7,12 +7,12 @@
     # Declare the nixos modules for the machine
     modules = [
       inputs.home-manager.nixosModules.home-manager
-      self.nixosModules.universal
+      self.nixosModules.common
       self.nixosModules.alienix
       self.nixosModules.cody
       self.nixosModules.hyprland
       self.nixosModules.development
-      self.nixosModules.ollama
+      self.nixosModules.llm
       self.nixosModules.gaming
     ];
 
