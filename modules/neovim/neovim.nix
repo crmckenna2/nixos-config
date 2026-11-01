@@ -69,4 +69,15 @@
 
   };
 
+  # Symlink lua files to the neovim config
+  home.file.".config/nvim/lua" = {
+    source = ./lua;
+    recursive = true;
+    force = true;
+  };
+  home.file.".config/nvim/.luarc.json" = {
+    source = ./.luarc.json;
+    force = true;
+  };
+
 }
