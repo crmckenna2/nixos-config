@@ -22,7 +22,6 @@ local screenshot_cmd = 'grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +"%b-
 -- Miscellaneous keybinds 
 hl.bind("SUPER + SPACE", hl.dsp.exec_cmd(launcher_cmd))
 hl.bind("SUPER + M", hl.dsp.window.close({}))
-hl.bind("SUPER + ALT + M", hl.dsp.exec_cmd(exit_hyprland_cmd))
 hl.bind("SUPER + COMMA", hl.dsp.workspace.toggle_special("scratchpad"))
 hl.bind("SUPER + ALT + COMMA", hl.dsp.window.move({workspace = "special:scratchpad"}))
 hl.bind("SUPER + PERIOD", hl.dsp.layout("consume"))
