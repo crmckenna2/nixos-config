@@ -3,13 +3,12 @@
 
   inputs = {
 
-    # Most recent stable branch of nixpkgs and home-manager
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
-    # home-manager.url = "github:nix-community/home-manager/release-26.05";
-
     # Unstable branch of nixpkgs and home-manager
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
+
+    # Most recent stable branch of nixpkgs and home-manager
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
 
     # Extra utilities
     flake-parts.url = "github:hercules-ci/flake-parts";
@@ -20,10 +19,10 @@
   # Declare the outputs recursively with import-tree
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; }
     (inputs.import-tree [
-      ./.flake-parts
+      ./flake-utils
+      ./modules
       ./hosts
       ./users
-      ./modules
     ]);
 
 }

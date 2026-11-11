@@ -8,6 +8,7 @@
     modules = [
       inputs.home-manager.nixosModules.home-manager
       self.nixosModules.common
+      self.nixosModules.stable-overlay
       self.nixosModules.alienix
       self.nixosModules.cody
       self.nixosModules.hyprland

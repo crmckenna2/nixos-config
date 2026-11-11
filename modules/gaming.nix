@@ -16,7 +16,7 @@
         jdks = [ jdk25 ];
         additionalLibs = [ ocl-icd ];
       })
-      arnis
+      stable.arnis
 
     ];
 
