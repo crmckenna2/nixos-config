@@ -5,10 +5,19 @@
     # Install steam
     programs.steam.enable = true;
 
-    # Set up homm3
     environment.systemPackages = with pkgs; [
+
+      # Set up homm3
       wineWow64Packages.full
       xvfb-run
+
+      # Minecraft
+      (prismlauncher.override {
+        jdks = [ jdk25 ];
+        additionalLibs = [ ocl-icd ];
+      })
+      arnis
+
     ];
 
   };

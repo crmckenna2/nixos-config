@@ -9,6 +9,7 @@
       self.nixosModules.nixps
       self.nixosModules.cody
       self.nixosModules.hyprland
+      self.nixosModules.browsers
       self.nixosModules.development
       self.nixosModules.gaming
     ];

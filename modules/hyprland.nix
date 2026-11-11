@@ -39,10 +39,8 @@
       grim
       foot
       fuzzel
-      librewolf
       bluetui
       wev
-      qutebrowser
     ];
 
     # Configure the system audio

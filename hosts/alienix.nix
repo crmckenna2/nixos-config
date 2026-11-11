@@ -11,6 +11,7 @@
       self.nixosModules.alienix
       self.nixosModules.cody
       self.nixosModules.hyprland
+      self.nixosModules.browsers
       self.nixosModules.development
       self.nixosModules.llm
       self.nixosModules.gaming
@@ -31,7 +32,10 @@
 
     # Nvidia and graphical settings
     services.xserver.videoDrivers = [ "nvidia" ];
-    hardware.graphics.enable = true;
+    hardware.graphics = {
+      enable = true;
+      extraPackages = [ pkgs.ocl-icd ];
+    };
     hardware.nvidia = {
       modesetting.enable = true;
       powerManagement.enable = true;
@@ -56,6 +60,7 @@
     # Kernel modules
     boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
     boot.initrd.kernelModules = [ "nvidia" "nvidia-modeset" "nvidia-uvm" "nvidia-drm" ];
+    boot.kernelParams = [ "gather_data_sampling=off" ];
     boot.kernelModules = [ "kvm-intel" ];
     boot.extraModulePackages = [ ];
 
