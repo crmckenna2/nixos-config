@@ -26,6 +26,11 @@
       # Lua development
       lua-language-server
 
+      # Agentic development
+      pi-coding-agent
+      mcp-nixos
+      graphify
+
     ];
 
     programs.direnv = {
