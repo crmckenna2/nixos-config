@@ -10,6 +10,7 @@
 
       # General utilities
       git
+      tmux
       tree
       ripgrep
       fzf
@@ -17,19 +18,14 @@
 
       # Nix development
       nix-index
-      nix-direnv
-      direnv
       comma
-      nixd
       nh
-
-      # Lua development
-      lua-language-server
 
       # Agentic development
       pi-coding-agent
       mcp-nixos
       graphify
+      wl-clipboard
 
     ];
 

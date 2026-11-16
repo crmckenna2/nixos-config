@@ -97,6 +97,7 @@ vim.diagnostic.config {
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("nixd")
 vim.lsp.enable("qmlls")
+vim.lsp.enable("rust_analyzer")
 
 
 ---------------------

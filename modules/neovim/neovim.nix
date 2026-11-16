@@ -12,6 +12,9 @@
 
       extraPackages = with pkgs; [
 
+        # Treesitter CLI
+        tree-sitter
+
         # Nix LSP
         nixd
 
@@ -21,9 +24,13 @@
         # QML LSP, yes that is the package name
         kdePackages.qtdeclarative
 
+        # Rust LSP
+        rust-analyzer
+
       ];
 
       plugins = with pkgs.vimPlugins; [
+
         # LSP config
         nvim-lspconfig
 
@@ -34,6 +41,7 @@
           nix
           lua
           qmljs
+          rust
 
           # Other utilities
           markdown
