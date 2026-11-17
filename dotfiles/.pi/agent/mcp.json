@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "nixos": {
+      "type": "stdio",
+      "command": "mcp-nixos",
+      "args": [],
+      "exposure": "codemode",
+      "description": "Search Nix packages, NixOS and Home Manager options, and Nix documentation."
+    },
+    "open-websearch": {
+      "type": "stdio",
+      "command": "open-websearch",
+      "args": [],
+      "exposure": "codemode",
+      "description": "Search the web and fetch web pages, articles, and GitHub README files."
+    }
+  }
+}

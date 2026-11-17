@@ -23,9 +23,9 @@
 
       # Agentic development
       pi-coding-agent
+      open-websearch
       mcp-nixos
       graphify
-      wl-clipboard
 
     ];
 

@@ -37,6 +37,7 @@
       playerctl
       slurp
       grim
+      wl-clipboard
       foot
       fuzzel
       bluetui
