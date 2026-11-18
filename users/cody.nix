@@ -49,6 +49,13 @@
       force = true;
     };
 
+    # Symlink dotfiles for legacy apps that do not use XDG home
+    home.file.".pi" = {
+      source = ../dotfiles/.pi;
+      recursive = true;
+      force = true;
+    };
+
     # Move default directories out of the home directory
     xdg.userDirs = {
       enable = true;
