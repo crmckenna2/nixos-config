@@ -37,8 +37,6 @@
       wifi = {
         powersave = false;
         scanRandMacAddress = false;
-        macAddress = "permanent";
-        backend = "iwd";
       };
     };
 
