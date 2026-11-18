@@ -1,7 +1,7 @@
 {
   "$schema": "https://pi.dev/schemas/keybindings.schema.json",
-  "app.model.cycleForward": "ctrl+h",
-  "app.model.cycleBackward": "ctrl+l",
+  "app.model.cycleForward": [],
+  "app.model.cycleBackward": [],
   "app.editor.external": "ctrl+;",
   "tui.input.newLine": "shift+enter",
   "tui.input.submit": "enter",

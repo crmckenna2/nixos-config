@@ -1,11 +1,10 @@
 if status is-interactive
 
     # Set aliases
+    alias nos="nh os switch ~/nixos-config"
+    alias db="nixos-rebuild dry-build --show-trace --flake ~/nixos-config"
     alias ls="ls --color=auto --group-directories-first"
     alias la="ls --color=auto -a --group-directories-first"
-    alias rb="sudo nixos-rebuild switch --flake ~/nixos-config"
-    alias db="nixos-rebuild dry-build --show-trace --flake ~/nixos-config"
-    alias gpu="nvidia-smi"
 
     # Allow vim keybinds
     fish_vi_key_bindings

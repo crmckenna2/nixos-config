@@ -1,7 +1,15 @@
 {
   "lastChangelogVersion": "1.5.0",
   "defaultProvider": "openai",
-  "defaultModel": "gpt-6.2-sol",
+  "defaultModel": "gpt-6.1-sol",
+  "defaultThinkingLevel": "medium",
+  "enabledModels": [
+    "openai/o4-mini",
+    "openai/gpt-6.1-terra",
+    "openai/gpt-6.1-sol",
+    "openai/gpt-6.2-sol",
+    "openai/gpt-6.2-astra",
+  ],
   "images": {
     "blockImages": true
   },
