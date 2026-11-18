@@ -31,6 +31,17 @@
     # Graphical settings
     hardware.graphics.enable = true;
 
+    # Networking
+    networking.networkmanager = {
+      enable = true;
+      wifi = {
+        powersave = false;
+        scanRandMacAddress = false;
+        macAddress = "permanent";
+        backend = "iwd";
+      };
+    };
+
     # IMPORTANT: The code below this line is written by the OS
     # Be very deliberate when considering changes to the code below
     imports = [
