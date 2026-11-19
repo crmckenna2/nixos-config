@@ -33,8 +33,9 @@
     # Unfree software
     nixpkgs.config.allowUnfree = true;
 
-    # Experimental nix features
+    # Nix configuration
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    nix.settings.use-xdg-base-directories = true;
 
     # Prevent home manager from double installing packages
     home-manager.useGlobalPkgs = true;

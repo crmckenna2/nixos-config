@@ -39,19 +39,17 @@
     # Enable home manager
     programs.home-manager.enable = true;
 
-    # Clean up the home directory
+    # Move config directories from home to ~/.config
     xdg.enable = true;
+    systemd.user.sessionVariables = {
+      WINEPREFIX = "${config.xdg.dataHome}/wine";
+      PULSE_COOKIE = "${config.xdg.configHome}/pulse/cookie";
+      PI_CODING_AGENT_DIR = "${config.xdg.configHome}/pi/agent";
+    };
 
     # Symlink the dotfiles
     home.file.".config" = {
       source = ../dotfiles/.config;
-      recursive = true;
-      force = true;
-    };
-
-    # Symlink dotfiles for legacy apps that do not use XDG home
-    home.file.".pi" = {
-      source = ../dotfiles/.pi;
       recursive = true;
       force = true;
     };
