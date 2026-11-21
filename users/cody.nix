@@ -23,6 +23,7 @@
     home-manager.users.cody.imports = [
       self.homeModules.cody
       self.homeModules.neovim
+      self.homeModules.zed
     ];
 
     # Enable fish as a possible shell
