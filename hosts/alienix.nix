@@ -7,8 +7,8 @@
     # Declare the nixos modules for the machine
     modules = [
       inputs.home-manager.nixosModules.home-manager
-      self.nixosModules.common
       self.nixosModules.stable-overlay
+      self.nixosModules.common
       self.nixosModules.alienix
       self.nixosModules.cody
       self.nixosModules.hyprland
@@ -43,6 +43,16 @@
       open = true;
       nvidiaSettings = true;
       package = config.boot.kernelPackages.nvidiaPackages.latest;
+    };
+
+    # Use the nixos cuda cache instead of compiling from source
+    nix.settings = {
+      substituters = [
+        "https://cache.nixos-cuda.org"
+      ];
+      trusted-public-keys = [
+        "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
+      ];
     };
 
     # Set up communication utility for the monitor

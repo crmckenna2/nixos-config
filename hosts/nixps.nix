@@ -5,8 +5,8 @@
     # Declare the nixos modules for the machine
     modules = [
       inputs.home-manager.nixosModules.home-manager
-      self.nixosModules.common
       self.nixosModules.stable-overlay
+      self.nixosModules.common
       self.nixosModules.nixps
       self.nixosModules.cody
       self.nixosModules.hyprland

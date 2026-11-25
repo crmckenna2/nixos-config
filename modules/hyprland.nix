@@ -6,6 +6,9 @@
     programs.hyprland.enable = true;
     programs.hyprland.withUWSM = true;
 
+    # Qt for quickshell
+    qt.enable = true;
+
     # Launch hyprland at startup
     services.greetd = {
       enable = true;
@@ -65,8 +68,9 @@
       };
     };
 
-    # Qt for quickshell
-    qt.enable = true;
+    # External drive support
+    services.udisks2.enable = true;
+    services.gvfs.enable = true;
 
     # Fonts
     fonts.packages = with pkgs; [
