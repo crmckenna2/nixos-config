@@ -40,6 +40,9 @@
       };
     };
 
+    # Emulation (TEMPORARY)
+    boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
     # IMPORTANT: The code below this line is written by the OS
     # Be very deliberate when considering changes to the code below
     imports = [

@@ -68,10 +68,6 @@
       };
     };
 
-    # External drive support
-    services.udisks2.enable = true;
-    services.gvfs.enable = true;
-
     # Fonts
     fonts.packages = with pkgs; [
       cascadia-code
