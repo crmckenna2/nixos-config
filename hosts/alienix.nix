@@ -14,6 +14,7 @@
       self.nixosModules.development
       self.nixosModules.llm
       self.nixosModules.gaming
+      self.nixosModules.openssh
     ];
 
   };
