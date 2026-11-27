@@ -14,6 +14,7 @@
 
         # Search tool for telescope
         ripgrep
+        fd
 
         # Treesitter CLI
         tree-sitter
