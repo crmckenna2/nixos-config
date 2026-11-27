@@ -1,6 +1,4 @@
-{ self, inputs, ... }:
-
-{
+{ self, inputs, ... }: {
 
   flake.nixosConfigurations.alienix = inputs.nixpkgs.lib.nixosSystem {
 

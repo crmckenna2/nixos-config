@@ -10,11 +10,8 @@
     # Most recent stable branch of nixpkgs and home-manager
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
 
-    # Hardware configurations
-    nixos-hardware = {
-      url = "github:nixos/nixos-hardware/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # Third party raspberry pi support
+    nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
 
     # Extra utilities
     flake-parts.url = "github:hercules-ci/flake-parts";
