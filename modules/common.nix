@@ -6,6 +6,9 @@
     environment.systemPackages = with pkgs; [
       git
       btop
+      nix-index
+      comma
+      nh
     ];
 
     # Network manager
@@ -36,6 +39,10 @@
     # Nix configuration
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
     nix.settings.use-xdg-base-directories = true;
+    programs.direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
 
     # Prevent home manager from double installing packages
     home-manager.useGlobalPkgs = true;
