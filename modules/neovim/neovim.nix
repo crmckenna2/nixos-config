@@ -12,6 +12,9 @@
 
       extraPackages = with pkgs; [
 
+        # Search tool for telescope
+        ripgrep
+
         # Treesitter CLI
         tree-sitter
 
