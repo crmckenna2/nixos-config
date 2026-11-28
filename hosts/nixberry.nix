@@ -12,7 +12,7 @@
 
       self.nixosModules.nixberry
       self.nixosModules.common
-      self.nixosModules.openssh
+      self.nixosModules.networking
       self.nixosModules.cody
     ];
 

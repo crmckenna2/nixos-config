@@ -11,20 +11,6 @@
       nh
     ];
 
-    # Network manager
-    networking.networkmanager.enable = true;
-    networking.nameservers = [ "9.9.9.9" "149.112.112.112" "193.138.219.74" "193.138.218.74" ];
-    services.resolved.enable = true;
-
-    # Personalized networking
-    networking.hosts = {
-      "0.0.0.0" = [
-        #"www.youtube.com"
-        "m.youtube.com"
-        "youtube.com"
-      ];
-    };
-
     # Language and time zone
     i18n.defaultLocale = "en_US.UTF-8";
     time.timeZone = "America/Chicago";

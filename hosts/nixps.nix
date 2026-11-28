@@ -13,7 +13,7 @@
       self.nixosModules.browsers
       self.nixosModules.development
       self.nixosModules.gaming
-      self.nixosModules.openssh
+      self.nixosModules.networking
     ];
 
   };
